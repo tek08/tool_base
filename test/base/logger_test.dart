@@ -208,8 +208,8 @@ void main() {
       }, overrides: <Type, Generator>{
         Logger: () => StdoutLogger(),
         OutputPreferences: () => OutputPreferences(showColor: true),
-        Platform: () => FakePlatform(
-            operatingSystem: testOsstdoutSupportsAnsi: true),
+        Platform: () =>
+            FakePlatform(operatingSystem: testOs, stdoutSupportsAnsi: true),
         Stdio: () => mockStdio,
       });
 
