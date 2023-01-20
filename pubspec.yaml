@@ -10,7 +10,7 @@ environment:
 
 dependencies:
   # To update these, use "flutter update-packages --force-upgrade".
-  archive: ^3.3.5
+  archive: ^3.3.0
   file: ^6.1.2
   platform: ^3.1.0
   process: ^4.2.4
