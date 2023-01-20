@@ -58,17 +58,23 @@ void printStatus(
   int hangingIndent,
   bool wrap,
 }) {
-  logger.printStatus(
-    message,
-    emphasis: emphasis ?? false,
-    color: color,
-    newline: newline ?? true,
-    indent: indent,
-    hangingIndent: hangingIndent,
-    wrap: wrap,
-  );
+  if (logger != null) {
+    logger.printStatus(
+      message,
+      emphasis: emphasis ?? false,
+      color: color,
+      newline: newline ?? true,
+      indent: indent,
+      hangingIndent: hangingIndent,
+      wrap: wrap,
+    );
+  }
 }
 
 /// Use this for verbose tracing output. Users can turn this output on in order
 /// to help diagnose issues with the toolchain or with their setup.
-void printTrace(String message) => logger.printTrace(message);
+void printTrace(String message) {
+  if (logger != null) {
+    logger.printTrace(message);
+  }
+}

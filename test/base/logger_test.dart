@@ -4,20 +4,20 @@
 
 import 'dart:convert' show jsonEncode;
 
+import 'package:quiver/testing/async.dart';
 import 'package:tool_base/src/base/context.dart';
 import 'package:tool_base/src/base/io.dart';
 import 'package:tool_base/src/base/logger.dart';
 import 'package:tool_base/src/base/platform.dart';
 import 'package:tool_base/src/base/terminal.dart';
-import 'package:quiver/testing/async.dart';
 
 import '../src/common.dart';
 import '../src/context.dart';
 import '../src/mocks.dart';
 
-final Generator _kNoAnsiPlatform = () =>
-    FakePlatform.fromPlatform(const LocalPlatform())
-      ..stdoutSupportsAnsi = false;
+final Generator _kNoAnsiPlatform =
+    () => FakePlatform.fromPlatform(const LocalPlatform());
+// ..stdoutSupportsAnsi = false;
 
 void main() {
   final String red = RegExp.escape(AnsiTerminal.red);
@@ -68,7 +68,7 @@ void main() {
               r'\n$'));
     }, overrides: <Type, Generator>{
       OutputPreferences: () => OutputPreferences(showColor: true),
-      Platform: () => FakePlatform()..stdoutSupportsAnsi = true,
+      Platform: () => FakePlatform(stdoutSupportsAnsi: true),
     });
   });
 
@@ -208,8 +208,8 @@ void main() {
       }, overrides: <Type, Generator>{
         Logger: () => StdoutLogger(),
         OutputPreferences: () => OutputPreferences(showColor: true),
-        Platform: () =>
-            FakePlatform(operatingSystem: testOs)..stdoutSupportsAnsi = true,
+        Platform: () => FakePlatform(
+            operatingSystem: testOsstdoutSupportsAnsi: true),
         Stdio: () => mockStdio,
       });
 
@@ -252,7 +252,7 @@ void main() {
         Logger: () => StdoutLogger(),
         OutputPreferences: () => OutputPreferences(showColor: true),
         Platform: () =>
-            FakePlatform(operatingSystem: testOs)..stdoutSupportsAnsi = true,
+            FakePlatform(operatingSystem: testOs, stdoutSupportsAnsi: true),
         Stdio: () => mockStdio,
       });
 
@@ -596,7 +596,7 @@ void main() {
     }, overrides: <Type, Generator>{
       Logger: () => StdoutLogger(),
       OutputPreferences: () => OutputPreferences(showColor: true),
-      Platform: () => FakePlatform()..stdoutSupportsAnsi = true,
+      Platform: () => FakePlatform(stdoutSupportsAnsi: true),
       Stdio: () => mockStdio,
     });
 

@@ -10,15 +10,15 @@ environment:
 
 dependencies:
   # To update these, use "flutter update-packages --force-upgrade".
-  archive: ^2.0.9
-  file: ^5.0.8
-  platform: ^2.2.0
-  process: ^3.0.9
-  pub_cache: ^0.2.3
+  archive: ^3.3.5
+  file: ^6.1.2
+  platform: ^3.1.0
+  process: ^4.2.4
+  pub_cache: ^0.3.1
 
 dev_dependencies:
   pedantic: ^1.0.0
   test: ^1.0.0
-  mockito: ^4.1.0
-  quiver: ^2.0.3
-  file_testing: 2.1.0
+  mockito: ^5.3.2
+  quiver: ^3.2.1
+  file_testing: ^3.0.0
